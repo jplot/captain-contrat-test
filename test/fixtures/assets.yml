@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  assetable: one (Race)
+  slug: strength
+  value: 1.5
+
+two:
+  assetable: two (Race)
+  slug: protection
+  value: 1.5
+
+three:
+  assetable: one (Item)
+  slug: strength
+  value: 1.5
+
+four:
+  assetable: two (Item)
+  slug: protection
+  value: 1.5
