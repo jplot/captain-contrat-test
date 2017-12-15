@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215182826) do
+ActiveRecord::Schema.define(version: 20171215230346) do
 
   create_table "assets", force: :cascade do |t|
     t.string "assetable_type"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20171215182826) do
     t.integer "race_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
     t.index ["race_id"], name: "index_characters_on_race_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
