@@ -7,3 +7,19 @@ one:
 two:
   character: two
   user_item: two
+
+three:
+  character: one
+  user_item: three
+
+four:
+  character: one
+  user_item: four
+
+five:
+  character: one
+  user_item: five
+
+six:
+  character: one
+  user_item: six

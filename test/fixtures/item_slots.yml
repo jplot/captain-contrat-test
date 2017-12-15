@@ -1,25 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
   item: one
+  slug: 1
 
 two:
-  user: two
   item: two
+  slug: 1
 
 three:
-  user: one
   item: three
+  slug: 0
 
 four:
-  user: one
   item: four
+  slug: 4
 
 five:
-  user: one
   item: five
+  slug: 5
 
 six:
-  user: one
   item: six
+  slug: 2
+
+seven:
+  item: six
+  slug: 3

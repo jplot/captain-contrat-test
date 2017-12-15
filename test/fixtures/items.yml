@@ -1,9 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  slug: MyOne
-  slots: "---\n- cheat\n"
+  slug: item-one
 
 two:
-  slug: MyTwo
-  slots: "---\n- cheat\n"
+  slug: item-two
+
+three:
+  slug: item-three
+
+four:
+  slug: item-four
+
+five:
+  slug: item-five
+
+six:
+  slug: item-six
