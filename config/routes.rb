@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  scope format: false do
+    devise_for :users, skip: :registrations
+
+    devise_scope :user do
+      unauthenticated do
+        root controller: 'devise/sessions', action: :new
+      end
+
+      authenticated do
+        root controller: 'devise/registrations', action: :edit, as: :authenticated_root
+      end
+
+      resource :registration,
+        only: %i[new create edit update],
+        path: 'users',
+        path_names: { new: 'sign_up' },
+        controller: 'devise/registrations',
+        as: :user_registration do
+          get :cancel
+        end
+    end
+  end
 end
