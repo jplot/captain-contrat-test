@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  arena_action: one
+  arena_character: two
+  value: 1.5
+
+two:
+  arena_action: two
+  arena_character: one
+  value: 1.5

@@ -10,7 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215230346) do
+ActiveRecord::Schema.define(version: 20171216140556) do
+
+  create_table "action_characters", force: :cascade do |t|
+    t.integer "arena_action_id"
+    t.integer "arena_character_id"
+    t.float "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["arena_action_id"], name: "index_action_characters_on_arena_action_id"
+    t.index ["arena_character_id"], name: "index_action_characters_on_arena_character_id"
+  end
+
+  create_table "arena_actions", force: :cascade do |t|
+    t.integer "arena_character_id"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["arena_character_id"], name: "index_arena_actions_on_arena_character_id"
+  end
+
+  create_table "arena_characters", force: :cascade do |t|
+    t.integer "arena_id"
+    t.integer "character_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["arena_id"], name: "index_arena_characters_on_arena_id"
+    t.index ["character_id"], name: "index_arena_characters_on_character_id"
+  end
+
+  create_table "arenas", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "assets", force: :cascade do |t|
     t.string "assetable_type"
