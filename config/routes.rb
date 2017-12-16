@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       end
 
       authenticated do
-        root controller: 'devise/registrations', action: :edit, as: :authenticated_root
+        root controller: :characters, action: :index, as: :authenticated_root
       end
 
       resource :registration,
@@ -20,5 +20,7 @@ Rails.application.routes.draw do
           get :cancel
         end
     end
+
+    resources :characters
   end
 end
