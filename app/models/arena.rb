@@ -1,7 +1,7 @@
 class Arena < ApplicationRecord
   include AASM
 
-  has_many :arena_characters
+  has_many :arena_characters, dependent: :destroy
 
   enum state: { pending: 0, ready: 1 }
 

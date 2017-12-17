@@ -6,8 +6,8 @@ class ArenaCharacter < ApplicationRecord
 
   enum state: { pending: 0, ready: 1, left: 2 }
 
-  has_many :arena_actions
-  has_many :action_characters
+  has_many :arena_actions, dependent: :destroy
+  has_many :action_characters, dependent: :destroy
 
   scope :inside, -> { where.not(state: :leave) }
 
