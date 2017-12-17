@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171217114046) do
+ActiveRecord::Schema.define(version: 20171217132928) do
 
   create_table "action_characters", force: :cascade do |t|
     t.integer "arena_action_id"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20171217114046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "state"
+    t.integer "min_characters", default: 2
+    t.integer "max_characters", default: 2
   end
 
   create_table "assets", force: :cascade do |t|

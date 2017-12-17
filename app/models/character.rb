@@ -7,21 +7,21 @@ class Character < ApplicationRecord
   scope :active, -> { where(deleted_at: nil) }
 
   def current_equipment
-    self.equipment
+    equipment
   end
 
   def equipment_at(timestamp)
-    self.equipment(timestamp)
+    equipment(timestamp)
   end
 
   def archive!
-    self.update(deleted_at: Time.current)
+    update(deleted_at: Time.current)
   end
 
   protected
 
   def equipment(timestamp = nil)
-    equipped_items = timestamp ? self.character_items.equipped_at(timestamp) : self.character_items.currently_equipped
+    equipped_items = timestamp ? character_items.equipped_at(timestamp) : character_items.currently_equipped
     equipped_items.includes(user_item: { item: :item_slots }).flat_map do |character_item|
       character_item.user_item.item.item_slots.map do |slot|
         {

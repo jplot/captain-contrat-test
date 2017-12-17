@@ -13,6 +13,6 @@ class CharacterItem < ApplicationRecord
   scope :by_slot, -> (slot) { by_slots([slot]) }
 
   def unequip!
-    self.update(deleted_at: Time.current)
+    update(deleted_at: Time.current)
   end
 end
