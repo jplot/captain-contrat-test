@@ -3,7 +3,9 @@
 one:
   arena: one
   character: one
+  state: pending
 
 two:
   arena: one
   character: two
+  state: pending

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216140556) do
+ActiveRecord::Schema.define(version: 20171217114046) do
 
   create_table "action_characters", force: :cascade do |t|
     t.integer "arena_action_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20171216140556) do
     t.integer "character_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "state"
     t.index ["arena_id"], name: "index_arena_characters_on_arena_id"
     t.index ["character_id"], name: "index_arena_characters_on_character_id"
   end
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20171216140556) do
   create_table "arenas", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "state"
   end
 
   create_table "assets", force: :cascade do |t|
