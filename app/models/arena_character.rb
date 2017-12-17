@@ -21,6 +21,10 @@ class ArenaCharacter < ApplicationRecord
 
     event :ready do
       transitions from: :pending, to: :ready
+
+      after do
+        arena.ready!
+      end
     end
 
     event :pending do
@@ -41,7 +45,7 @@ class ArenaCharacter < ApplicationRecord
   end
 
   # def validate_place_available
-  #   if arena.arena_characters >= arena.max_characters
+  #   if arena.arena_characters > arena.size
   #     errors.add(:max_characters)
   #   end
   # end

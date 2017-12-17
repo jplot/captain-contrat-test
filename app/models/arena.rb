@@ -5,8 +5,7 @@ class Arena < ApplicationRecord
 
   enum state: { pending: 0, ready: 1 }
 
-  validates :min_characters, numericality: { only_integer: true, greater_than_or_equal_to: 2 }
-  validates :max_characters, numericality: { only_integer: true, greater_than_or_equal_to: 2, less_than_or_equal_to: 6  }
+  validates :size, numericality: { only_integer: true, greater_than_or_equal_to: 2 }
 
   aasm column: :state, enum: true, whiny_transitions: false, no_direct_assignment: true do
     state :pending, initial: true
@@ -16,8 +15,12 @@ class Arena < ApplicationRecord
       transitions from: :pending, to: :ready do
         guard do
           state_characters = arena_characters.inside.map(&:ready?)
-          state_characters >= min_characters && state_characters <= max_characters && state_characters.reduce(:&)
+          state_characters.count >= size && state_characters.reduce(:&)
         end
+      end
+
+      after do
+        update(started_at: Time.current)
       end
     end
   end
