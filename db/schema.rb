@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171217185028) do
+ActiveRecord::Schema.define(version: 20171217221123) do
 
   create_table "action_characters", force: :cascade do |t|
     t.integer "arena_action_id"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20171217185028) do
     t.datetime "updated_at", null: false
     t.integer "state"
     t.integer "size", default: 2
+    t.datetime "started_at"
   end
 
   create_table "assets", force: :cascade do |t|

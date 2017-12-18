@@ -4,7 +4,7 @@ class ArenaCharacter < ApplicationRecord
   belongs_to :arena
   belongs_to :character
 
-  enum state: { pending: 0, ready: 1, left: 2 }
+  enum state: { pending: 0, ready: 1, left: 2, win: 3, lose: 4 }
 
   has_many :arena_actions, dependent: :destroy
   has_many :action_characters, dependent: :destroy
@@ -18,6 +18,8 @@ class ArenaCharacter < ApplicationRecord
     state :pending, initial: true
     state :ready
     state :left
+    state :win
+    state :lose
 
     event :ready do
       transitions from: :pending, to: :ready
@@ -41,6 +43,14 @@ class ArenaCharacter < ApplicationRecord
           arena.pending?
         end
       end
+    end
+
+    event :win do
+      transitions from: :ready, to: :win
+    end
+
+    event :lose do
+      transitions from: :ready, to: :lose
     end
   end
 
